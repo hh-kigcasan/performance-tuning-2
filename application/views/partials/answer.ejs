@@ -1,0 +1,11 @@
+<% if(hero_answer){ %>
+    <div id="solution">
+        <h1><%= hero_answer.course %></h1>
+        <h2><%= hero_answer.title %></h2>
+        <code>
+            <p>// Language: <%= hero_answer.language %></p>
+            <p>// Completed at: <%= hero_answer.complete_date %></p>
+            <pre><%= JSON.parse(hero_answer.answer) %></pre>
+        </code>
+    </div>
+<% } %>

@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background: url(https://cdn.hackerhero.com/1.1/assets/images/subscription/hackerhero-hexa-bg.png) 50%/cover fixed;
+    background-color: #2A2B2E;
+    background-position: 3px 734px;
+    transition: .25s ease-in-out;
+    font-family: Helvetica;
+}
+header {
+    background-color: #1B1D21;
+    padding: 10px 20px;
+}
+main {
+    margin: 3% auto 0 auto;
+    width: 70%;
+    background: transparent;
+}
+section {
+    background-color: #0f0f11;
+    width: 50%;
+    margin-left: 2%;
+    display: inline-block;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    height: 410px;
+    overflow: auto;
+}
+    section img {
+        width: 280px;
+        display: block;
+        margin: 15px auto;                    
+    }
+    section p {
+        color: #979797;
+        margin: 0 auto;
+        width: fit-content;
+        line-height: 25px;
+    }
+    section p#level {
+        margin-left: auto; 
+        margin-right: 7px;
+        color: green;
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+span {
+    color:green;
+}
+div.details {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+em {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+}
+    em ~ p {
+        font-family: Courier;
+        line-height: 25px;
+        font-weight: bolder;
+        margin-left: 10px;
+    }
+    em ~ p > span {
+        color: #55c255;
+    }
+
+#top-solution{
+    width: 100%;
+    position: relative;
+}
+    #top-solution a:nth-of-type(1) {
+        position: absolute;
+    }
+    #top-solution a:nth-of-type(2) {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #top-solution h1, #top-solution h2{
+        text-align: center;
+        font-weight: normal;
+    }
+    #top-solution h1 {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+    #top-solution code {
+        height: 260px;
+        width: 100%;
+        background-color: rgb(6, 8, 14);
+        overflow: auto;
+        display: inline-block;
+        margin: 8px auto;
+    }
+.arrows {
+    text-decoration: none;
+    color: #37d261;
+    font-size: 20px; 
+    display: inline-block;      
+    vertical-align: middle;
+} 
+
+
+#social{
+    position: relative;
+}
+    #social div{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+    #social figure {
+        margin: 10px auto;
+        width: 90%;
+    }
+    
+        #social figure img{
+            border-radius: 50%;
+            width: 55px;
+            height:50px;
+            object-fit: cover;
+            margin: 10px;
+            border: 3px solid transparent;
+        }
+        #social figure img:hover{
+            border: 3px solid rgba(209, 245, 6, 0.836);
+        }
+
+@media only screen and (max-width: 872px){
+    #top-solution, #bio, #social{
+        height: 340px;
+    }
+}

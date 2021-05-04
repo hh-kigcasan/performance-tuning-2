@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <!-- Jquery Card Tab-->
+        <link rel='stylesheet' href='../stylesheets/jquery.cardtabs.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type='text/javascript' src='../scripts/jquery.cardtabs.js'></script>
+        <!-- Main Script -->
+        <script>
+            $(document).ready(function(){
+                $('.details').cardTabs({theme: 'graygreen'});      
+                
+                function paginate(route, element){
+                    $.get(route, function(res) {
+                        if(res.trim() != ""){
+                            $(element).html(res);
+                        }
+                    }, 'html');
+                }
+
+                $('a.arrows').click(function(event) {
+                    event.preventDefault();
+                    paginate($(this).attr('href'), $(this).attr('update'));
+                });
+
+                paginate("/answer/current", "#solution");
+                paginate("/followers/current", "figure");
+            });
+        </script>
+        <!-- Personalized -->
+        <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+    </head>
+    <body>
+        <header>
+            <img src="https://cdn.hackerhero.com/1.1/assets/images/global/hh_logo_beta.svg" alt="Hacker Hero Logo">
+        </header>
+        <main>
+            <section>
+                <p id="level">Lv.<%= hero_display.hero_level %></p>
+                <img src="data:image/png;base64,<%= hero_display.converted_image %>"/> 
+                <p>Real name: <span><%= hero_display.first_name + " " + hero_display.last_name%></span></p>
+                <p>Hero name: <span><%= hero_display.hero_name %></span></p>
+                <p>Type: <span><%= hero_display.type %></span></p>
+                <p>Member since: <span><%= hero_display.membership_date %></span></p>
+                <p>Last done: <span><%= hero_display.title %> - <%= hero_display.name %></span></p>
+            </section>
+
+            <div class='details'>
+                <div data-tab="Bio" id="bio">
+                    <em><%= hero_display.description %></em>
+                    <p>Languages: <span><%= hero_display.language_proficiency %></span></p>
+                    <p>Passed: <span><%= hero_display.passed_num %></span></p>
+                    <p>Unfinished: <span><%= hero_display.unfinish_num %></span></p>
+                </div>
+
+                <div data-tab="Top Solutions" id="top-solution">
+                    <a href="/answer/prev" class="arrows" update="#solution">&#11164;</a>
+                    <a href="/answer/next" class="arrows" update="#solution">&#11166;</a>
+                    <div id="solution"></div>
+                </div>
+
+                <div data-tab="Social" id="social">
+                    <p>Followers: <span><%= hero_display.followers_count %></span></p>
+                    <div>
+                        <a href="/followers/prev" class="arrows" update="figure">&#11164;</a>
+                        <a href="/followers/next" class="arrows" update="figure">&#11166;</a>
+                    </div>
+                    <figure></figure>
+                </div>
+            </div>            
+        </main>
+    </body>
+</html>
