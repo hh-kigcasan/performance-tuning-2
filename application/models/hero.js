@@ -43,7 +43,7 @@ class Hero {
     }
 
     async getUnfinished(value=23){
-        const query = `SELECT COUNT(*) AS unfinish_num FROM hero_answers WHERE score <> 2 AND score <> 3 AND hero_id = ?`;
+        const query = `SELECT COUNT(*) AS unfinish_num FROM hero_answers WHERE score <> 1 AND score <> 2 AND score <> 3 AND hero_id = ?`;
         let get_unfinish_num = Mysql.format(query, [value]);
 
         let [result] = await executeQuery(get_unfinish_num);
